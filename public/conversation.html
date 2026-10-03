@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conversation — Outloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/dashboard.css"><link rel="stylesheet" href="/css/conversation.css">
+</head>
+<body class="conv">
+<main id="setup" class="setup">
+  <a class="logo" href="/dashboard">← Outloud</a>
+  <h1>What shall we talk about?</h1>
+  <fieldset><legend class="visually-hidden">Conversation type</legend><div id="modes" class="modes"></div></fieldset>
+  
+  
+    <div id="guestBox" class="guest" hidden>
+    <p class="alert alert--info">Guest mode: nothing is saved, and your review disappears when you leave the page.</p>
+    <label for="guestLevel">Your English level</label>
+    <select id="guestLevel">
+      <option>A1</option><option>A2</option><option selected>B1</option><option>B2</option><option>C1</option><option>C2</option>
+    </select>
+  </div>
+  <br>
+  
+  <p class="alert alert--error" id="setupError" role="alert" hidden></p>
+  <button class="btn btn--primary btn--block" id="startBtn" type="button">Start talking</button>
+  <p class="note">We'll ask for your microphone. Only transcripts are saved, never audio. Chrome and Edge send audio to their own speech servers for recognition.</p>
+</main>
+
+<main id="stage" class="stage" data-state="idle" hidden>
+  <header class="stage__top">
+    <p id="topic" class="stage__topic"></p>
+    <div class="toggles" role="group" aria-label="Conversation options">
+      <button class="chip" id="ccToggle" aria-pressed="true" type="button">Captions</button>
+      <button class="chip" id="trToggle" aria-pressed="false" type="button">Translate</button>
+      <button class="chip" id="autoToggle" aria-pressed="true" type="button">Auto-listen</button>
+    </div>
+  </header>
+
+  <section class="stage__center">
+    <div class="avatar" id="avatar" aria-hidden="true"><span class="avatar__ring"></span><span class="avatar__ring avatar__ring--2"></span><span class="avatar__core"><img class="avatar__img avatar__img--maya" src="/img/maya.png" alt=""><img class="avatar__img avatar__img--user" src="/img/user.png" alt=""></span></div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <canvas id="wave" class="wave" aria-hidden="true"></canvas>
+    <div class="captions" id="captions" aria-live="polite">
+      <p class="captions__who" id="captionWho"></p>
+      <p class="captions__text" id="caption"></p>
+    </div>
+    <p class="translation" id="translation" hidden></p>
+    <div class="correction" id="correction" hidden></div>
+    <p class="notice" id="notice" role="alert" hidden></p>
+
+        <div class="prev" id="prevAi" hidden>
+  <p class="prev__who">Maya said</p>
+  <p class="prev__text" id="prevText"></p>
+</div>
+
+    <div class="alert alert--error" id="endError" hidden>
+      <p id="endErrorText"></p>
+      <p><button class="btn btn--sm" id="retryEnd" type="button">Try again</button> <button class="btn btn--sm" id="skipEnd" type="button">End without AI summary</button></p>
+    </div>
+  </section>
+
+  <footer class="dock">
+    <button class="dock__side" id="replayBtn" type="button"><span aria-hidden="true">↺</span><small>Replay</small></button>
+    <div class="dock__mic">
+      <button class="mic" id="micBtn" type="button" aria-label="Start talking"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span class="mic__spinner" aria-hidden="true"></span></button>
+      <span id="micLabel" class="dock__label">Talk</span>
+    </div>
+    <button class="dock__side" id="endBtn" type="button"><span aria-hidden="true">✕</span><small>End</small></button>
+  </footer>
+</main>
+
+<dialog id="endDialog">
+  <form method="dialog">
+    <h2>End this conversation?</h2>
+    <p>We'll write up a short review of how it went.</p>
+    <div class="dialog__actions"><button class="btn" value="cancel">Keep talking</button><button class="btn btn--primary" value="end">End &amp; see review</button></div>
+  </form>
+</dialog>
+
+<main id="reportView" class="report" hidden><div id="reportBody"></div></main>
+<script type="module" src="/js/conversation.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — Outloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/auth.css">
+</head>
+<body class="auth">
+<a class="logo" href="/">Outloud</a>
+<main>
+  <h1 id="title">Welcome back</h1>
+  <form id="authForm" novalidate>
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="email" required>
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" minlength="6" required>
+    <p class="alert alert--error" id="authError" role="alert" hidden></p>
+    <p class="alert alert--info" id="authInfo" role="status" hidden></p>
+    <button class="btn btn--primary btn--block" id="submitBtn" type="submit">Sign in</button>
+    <button class="link" id="forgotBtn" type="button">Forgot password?</button>
+  </form>
+  <p class="switch"><span id="switchText">New here?</span> <button class="link" id="switchBtn" type="button">Create an account</button></p>
+    <p class="switch" style="margin-top:.5rem"><a href="/conversation?guest=1">Or continue as a guest</a></p>
+</main>
+<script type="module" src="/js/auth.js"></script>
+</body>
+</html>

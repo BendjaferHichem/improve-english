@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outloud — Improve your English by actually speaking it</title>
+<meta name="description" content="Have real spoken conversations with an AI that listens, answers out loud, and helps you improve naturally.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/landing.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="/">Outloud</a>
+  <nav><a data-signin href="/login">Sign in</a> <a class="btn btn--primary btn--sm" data-cta href="/login?mode=signup">Start Speaking</a></nav>
+</header>
+<main>
+<section class="hero">
+  <div class="hero__text">
+    <h1>Improve your English by actually speaking it.</h1>
+    <p class="lede">Have real conversations with an AI that listens, answers out loud, and helps you improve naturally. No typing. No exercises. Just talk.</p>
+    <p class="hero__cta"><a class="btn btn--primary" data-cta href="/login?mode=signup">Start Speaking</a> <a class="btn" href="#how">See How It Works</a></p>
+    <p class="note">Open an account for free. <a href="/conversation?guest=1">Or try it as a guest, no account needed.</a></p>
+  </div>
+  <div class="demo" id="demo" data-who="ai" aria-label="Illustration of the conversation screen">
+    <div class="demo__orb" aria-hidden="true"><img class="demo__img demo__img--maya" src="/img/maya.png" alt=""><img class="demo__img demo__img--user" src="/img/user.png" alt=""></div>
+    <p class="demo__state" id="demoState"></p>
+    <p class="demo__who" id="demoWho"></p>
+    <p class="demo__line" id="demoLine"></p>
+    <p class="demo__fix" id="demoFix" hidden></p>
+    <div class="demo__mic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+  </div>
+</section>
+
+<section id="how" class="steps">
+  <h2 class="visually-hidden">How it works</h2>
+  <article><span class="steps__n">1</span><h3>Talk naturally.</h3><p>Tap the microphone and answer like you would to a friend. Maya asks follow-up questions, shares opinions, and keeps the conversation moving. You do most of the talking.</p></article>
+  <article><span class="steps__n">2</span><h3>Get corrected naturally.</h3><p>Small slips are let go. Useful fixes arrive in one friendly sentence, the way a person would say them, and never in a way that kills the flow.</p></article>
+  <article><span class="steps__n">3</span><h3>Track your progress.</h3><p>After each chat you get a short review: what to fix, expressions worth stealing, and the patterns that keep coming back. Future conversations quietly practise them.</p></article>
+</section>
+
+<section class="privacy">
+  <h2>Your voice stays yours.</h2>
+  <p>We store transcripts, corrections and progress, never audio recordings. You can delete your history at any time. Speech recognition runs through your browser's built-in service; Chrome and Edge send audio to their own speech servers to do it.</p>
+</section>
+
+<section class="final">
+  <h2>Open the app. Press the microphone. Start talking.</h2>
+  <a class="btn btn--primary" data-cta href="/login?mode=signup">Start Speaking</a>
+</section>
+</main>
+<footer class="site-footer"><span>&copy; 2026 hichembenj. All rights reserved.</span><span>AI scores are estimates, not test results.</span></footer>
+<script type="module" src="/js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+main { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem); }
+.hero { display: grid; gap: 3rem; padding: 3rem 0 4rem; align-items: center; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.75rem 0 1rem; }
+@media (min-width: 860px) { .hero { grid-template-columns: 1.2fr 1fr; padding: 5rem 0 6rem; } }
+
+.demo { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 1.75rem 1.5rem; max-width: 340px; width: 100%; margin: 0 auto; text-align: center; box-shadow: 0 20px 50px -30px rgba(0,0,0,.35); min-height: 420px; display: flex; flex-direction: column; align-items: center; }
+.demo__orb { width: 84px; height: 84px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 600 2rem var(--serif); transition: background .3s; }
+.demo[data-who="user"] .demo__orb { background: var(--green); }
+.demo__state { font-size: .8rem; color: var(--muted); margin: .9rem 0 1.4rem; }
+.demo__who { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 0 0 .25rem; }
+.demo__line { font: 400 1.2rem/1.4 var(--serif); min-height: 5.6em; }
+.demo__fix { background: var(--accent-soft); border-radius: 10px; padding: .5rem .75rem; font-size: .8rem; margin: 0; }
+.demo__mic { margin-top: auto; width: 64px; height: 64px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; }
+
+.steps { display: grid; gap: 2rem; padding: 3rem 0; border-top: 1px solid var(--line); }
+.steps__n { font: 600 1rem var(--serif); color: var(--accent); }
+.steps h3 { font-size: 1.5rem; margin-top: .25rem; }
+.steps p { color: var(--muted); }
+@media (min-width: 860px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 3rem; } }
+
+.privacy { padding: 3rem 0; border-top: 1px solid var(--line); max-width: 44rem; }
+.privacy p { color: var(--muted); }
+.final { padding: 4rem 0 5rem; text-align: center; border-top: 1px solid var(--line); }
+.final h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); max-width: 22ch; margin: 0 auto 1.5rem; }
+.site-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; padding: 1.5rem clamp(1rem, 4vw, 3rem); color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+
+
+
+
+
+
+
+
+
+
+
+/* Keep the demo card a constant size so the page doesn't jump while it cycles */
+.demo { height: 480px; min-height: 0; }
+.demo__state { height: 1.2rem; margin: .9rem 0 1.4rem; }
+.demo__line { height: 7rem; min-height: 0; overflow: hidden; }
+.demo__fix { min-height: 3.8rem; }
+.demo__fix[hidden] { display: block; visibility: hidden; }
+@media (min-width: 860px) { .hero { align-items: start; } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Demo avatar pictures: swap to the user's picture when "You" is speaking */
+.demo__orb { position: relative; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 3px var(--accent); transition: box-shadow .3s; }
+.demo__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
+.demo__img--user { opacity: 0; }
+.demo[data-who="user"] .demo__img--user { opacity: 1; }
+.demo[data-who="user"] .demo__img--maya { opacity: 0; }
+.demo[data-who="user"] .demo__orb { background: var(--surface); box-shadow: 0 0 0 3px var(--green); }

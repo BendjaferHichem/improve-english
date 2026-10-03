@@ -1,0 +1,6 @@
+{
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }],
+  "functions": { "api/index.js": { "maxDuration": 30 } }
+}
