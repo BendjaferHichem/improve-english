@@ -38,8 +38,20 @@ function setMode(next) {
 $('#switchBtn').addEventListener('click', () => setMode(mode === 'signin' ? 'signup' : 'signin'));
 if (new URLSearchParams(location.search).get('mode') === 'signup') setMode('signup');
 
-// OAuth can be added later: enable a provider in Supabase, then call
-// supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: location.origin + '/dashboard' } })
+$('#googleBtn').addEventListener('click', async () => {
+  errorBox.hidden = infoBox.hidden = true;
+  try {
+    const { supabase } = await getSupabase();
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: location.origin + next() },
+    });
+    if (error) throw error;
+  } catch (err) {
+    errorBox.textContent = err.code === 'network' || err.code === 'not_configured' ? err.message : friendly(err);
+    errorBox.hidden = false;
+  }
+});
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();

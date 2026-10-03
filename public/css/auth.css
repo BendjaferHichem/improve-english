@@ -6,3 +6,22 @@ form .link { display: block; margin: 1rem auto 0; font-size: .9rem; color: var(-
 #authForm .btn { margin-top: 1.25rem; }
 .switch { text-align: center; margin-top: 2rem; color: var(--muted); }
 .switch .link { color: var(--ink); font-weight: 500; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn--google { margin: 0 0 1rem; }
+.btn--google svg { flex: none; }
+.divider { display: flex; align-items: center; gap: .75rem; color: var(--muted); font-size: .85rem; margin: 1rem 0 0; }
+.divider::before, .divider::after { content: ''; flex: 1; border-top: 1px solid var(--line); }
